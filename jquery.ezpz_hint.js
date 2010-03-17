@@ -11,12 +11,15 @@
 			var id = settings.hintName + '_' + i;
 			var hint;
 			var dummy_input;
+                        var text;
+                        var ctrl_type;
 			
 			// grab the input's title attribute
 			text = $(this).attr('title');
+                        ctrl_type = $(this).attr('type');
 			
 			// create a dummy input and place it before the input
-			$('<input type="text" id="' + id + '" value="" />')
+			$('<input type="' + ctrl_type + '" id="' + id + '" value="" />')
 				.insertBefore($(this));
 			
 			// set the dummy input's attributes
