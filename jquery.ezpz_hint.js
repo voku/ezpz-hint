@@ -18,12 +18,12 @@
 			text = $(this).attr('title');
                         //extract the control type, can't use ctrl.attr('type') because opera returns text for search boxes
                         var typeRegex = /type="(\w+)"/
-                        var regexResult = typeRegex.exec(ctrl.attr('outerHTML'))
+                        var regexResult = typeRegex.exec($(this).attr('outerHTML'))
                         if (regexResult) //ie6 doens't support regex exec'
                         {
                                 ctrl_type = regexResult[1]
                         } else {
-                                ctrl_type = ctrl.attr('type');
+                                ctrl_type = $(this).attr('type');
                         }
 
 			// create a dummy input and place it before the input
