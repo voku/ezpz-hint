@@ -60,18 +60,21 @@
 					if ($(this).val() == '') {
 						$(this).hide();
 						dummy_input.show();
-                                                blur_callback();
+                                                if (blur_callback)
+                                                    blur_callback();
+
 					}
 				});
 				$(this).hide();
-                                focus_callback();
+                                if (focus_callback)
+                                    focus_callback();
 			});
-			
+
 			// swap if there is a default value
 			if ($(this).val() != ''){
 				hint.focus();
 			}
 		});
-		
+
 	};
 })(jQuery);
