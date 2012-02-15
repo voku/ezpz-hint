@@ -62,6 +62,7 @@
                 $(this).next('input:first').unbind('blur').blur(function(){
                     if ($(this).val() == '') {
                         $(this).hide();
+			$(this).attr('autocomplete', 'on');
                         dummy_input.show();
                         if (blur_callback) {
                             blur_callback();
