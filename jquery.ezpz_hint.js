@@ -17,18 +17,18 @@
             // grab the input's title attribute
             text = $(this).attr('title');
             //extract the control type, can't use ctrl.attr('type') because opera returns text for search boxes
-            var typeRegex = /type="(\w+)"/
-            var regexResult = typeRegex.exec($(this).attr('outerHTML'))
-            if (regexResult) //ie6 doens't support regex exec'
-            {
-                ctrl_type = regexResult[1]
-            } else {
+            var typeRegex = /type="(\w+)"/;
+            var regexResult = typeRegex.exec($(this).attr('outerHTML'));
+            //ie6 doens't support regex exec'
+            if (regexResult) {
+                ctrl_type = regexResult[1];
+            } 
+            else {
                 ctrl_type = $(this).attr('type');
             }
 
             // create a dummy input and place it before the input
-            $('<input type="' + ctrl_type + '" id="' + id + '" value="" />')
-            .insertBefore($(this));
+            $('<input type="' + ctrl_type + '" id="' + id + '" value="" />').insertBefore($(this));
 
             // set the dummy input's attributes
             hint = $(this).prev('input:first');
@@ -36,8 +36,7 @@
 
             //some browsers don't support the size attrib
             var inputsize = $(this).attr('size')
-            if (typeof(inputsize) == 'number' && inputsize > 0)
-            {
+            if (typeof(inputsize) == 'number' && inputsize > 0) {
                 hint.attr('size',inputsize);
             }
             else {
@@ -64,18 +63,19 @@
                     if ($(this).val() == '') {
                         $(this).hide();
                         dummy_input.show();
-                        if (blur_callback)
+                        if (blur_callback) {
                             blur_callback();
-
+                        }
                     }
                 });
                 $(this).hide();
-                if (focus_callback)
+                if (focus_callback) {
                     focus_callback();
+                }
             });
 
             // swap if there is a default value
-            if ($(this).val() != ''){
+            if ($(this).val() != '') {
                 hint.focus();
             }
         });
