@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submitted'])) {
-        $echo = "E-Mail: " . $_POST['email'] . "<br/>";
-        $echo .= "Password: " . $_POST['password'];
+        $echo = "E-Mail: " . mysql_real_escape_string($_POST['email']) . "<br/>";
+        $echo .= "Password: " . mysql_real_escape_string($_POST['password']);
         echo $echo;
 } else {
 ?>
